@@ -6,7 +6,7 @@ function Delete( props){
 
     return(
         <>
-        <button onClick={onDelete}>Delete</button>
+        <button onClick={onDelete} className="btn-todo btn btn-del-todo">Delete</button>
         </>
     )
 }

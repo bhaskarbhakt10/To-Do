@@ -1,0 +1,19 @@
+@import url('./fonts.css');
+@import url('./main.css');
+@import url('./responsive.css');
+
+:root{
+  --white:#f5f4f0;
+  --black:#363635;
+  --grey:#e4e3de;
+  --darkgrey:#9ea096;
+  --pink:#e84e88;
+
+  --font-pop:'Poppins';
+  --font-man:'Manrope';
+}
+ul{
+  list-style-type:none ;
+  padding: 0;
+  margin: 0;
+}
