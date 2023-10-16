@@ -28,17 +28,58 @@ body {
     font-family: var(--font-pop);
     background: transparent;
     border: 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
     font-weight: 400;
-    padding: 10px 0;
+    padding: 20px 0 5px 0;
+    position: relative;
+    transition: border 0.5s linear;
+    line-height: 1.4;
+}
+.main-todo{
+    display: flex;
+}
+.to-do-input{
+    position: relative;
+    flex: 1;
+}
+.f-control::after{
+    content: '';
+    width: 0;
+    display: block;
+    height: 2px;
+    bottom: 0;
+    position: absolute;
+    background-color: red;
 }
 .f-control:focus{
     outline: 0;
+    border-bottom: 2px solid var(--pink);
 }
+.f-control:focus .to-do-input::after {
+width: 100%;
+}
+
 .main-todo{
     position: relative;
     margin: 0 0 10px 0;
     padding: 0 0 10px 0;
+    display: flex;
+    column-gap: 10px;
+    
+}
+.total{
+    display: flex;
+    align-items: flex-end;
+}
+span.currentCount{
+    font-weight: 300;
+    font-size:40px ;
+    font-family: var(--font-pop);
+    line-height: 1;
+}
+span.totalCount{
+    color: var(--pink);
+    font-size: 18px;
 }
 .todo-btn{
     position: absolute;
@@ -52,24 +93,107 @@ body {
     display: inline-block;
     text-align: center;
     padding: 8px 15px;
-    border-radius: 50px;
+    border-radius: 15px;
     outline: 0;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    transition: all 0.5s ease;
+    width: max-content;
+}
+.btn-todo:focus-visible{
+    border: 2px solid var(--darkpink);
 }
 .btn-add-todo{
-    border: 1px solid var(--pink);
+    border: 2px solid var(--pink);
     background-color: var(--pink);
     color:var(--white);
+
 }
+.btn-add-todo:hover{
+    background-color: var(--white);
+    color: var(--darkpink);
+}
+.btn-del-todo{
+    border: 2px solid var(--pink);
+    background-color: var(--pink);
+    color: var(--white);
+  
+}
+.btn-del-todo:hover{
+    color: var(--pink);
+    background-color: var(--white);
+}
+
 .list-todo-item{
     display: flex;
     column-gap: 5%;
+    align-items: center;
 }
 .list-todo-item-main{
-    flex:  0 0 70%;
+    flex:  1 0 70%;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.list-todo-item-main label{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: var(--font-pop);
+    flex: 1;
+    position: relative;
+}
+.list-todo-item-main input[type="checkbox"] {
+
+    display: none;
+}
+/* Create a custom checkbox design */
+.list-todo-item-main input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 25px; 
+    cursor: pointer;
+}
+
+
+.list-todo-item-main  input[type="checkbox"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 15px;
+    border-radius: 8px;
+    aspect-ratio: 1/1;
+    border: 2px solid var(--darkgrey); 
+    background-color: transparent;
+    transition: background-color 0.3s linear,background-image 0.3s ease;
+    /* transition: ; */
+}
+
+.list-todo-item-main  input[type="checkbox"]:checked + label::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='%23b90248' version='1.1' id='Capa_1' width='12px' height='12px' viewBox='0 0 78.369 78.369' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704 c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704 C78.477,17.894,78.477,18.586,78.049,19.015z'/%3E%3C/g%3E%3C/svg%3E");
+    border: 2px solid var(--pink);
+    background-color: var(--pink);
+    background-position: center ;
+    background-repeat:no-repeat ;
+}
+.list-item{
+    padding: 0 0 10px 0 ;
+    margin: 0 0 10px 0 ;
+    position: relative;
+}
+.list-item:not(:last-child):after{
+    content: '';
+    display: block;
+    background-color: var(--grey);
+    width: 75%;
+    margin: auto;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5%;
 }

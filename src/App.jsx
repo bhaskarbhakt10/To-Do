@@ -5,13 +5,16 @@ import Main from "./components/Main/Main"
 
 
 import './assets/css/index.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+
 
 
 function App() {
   return (
     <>
       <Header />
-      <Main />
+      <Main deleletIcon = {faTrash} addIcon={faPlus} />
       <Footer />
     </>
   )
